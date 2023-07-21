@@ -1,0 +1,11 @@
+Things to improve in the Atbash cipher program:
+
+
+- Keep numbers the same
+- Ignore non-alphanumerical characters like , . ! and so on
+- Ignore whitespaces
+
+- The result of string.length() is a long unsigned int and apparently shouldn't be compared with just an int type
+
+- Is it possible to specify which function you want to use after compiling the program? 
+For example encode this, decode that...
