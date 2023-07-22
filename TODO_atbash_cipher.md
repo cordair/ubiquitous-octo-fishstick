@@ -13,3 +13,15 @@ For example encode this, decode that...
 - How to use command line arguments: specify the function you want (encode, decode) and message or file to encode / decode.
 
     Use an if branch for each possible command line argument: if encode -> call encode function ....
+
+    
+# Notes:
+
+[It's a good practice to compare between equal types.](https://stackoverflow.com/questions/67553800/comparison-of-integer-expressions-of-different-signedness-correct-way-of-using)
+
+For example, the type of a_string.size() is unsigned long int, so if we want to compare it against an int variable, we should cast the type of a_string.size():
+(int) a_string.size() 
+
+or declare the int variable as size_t
+
+
