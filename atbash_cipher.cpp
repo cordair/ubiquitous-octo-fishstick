@@ -2,8 +2,8 @@
 #include <iostream>
 
 // Note: there are 26 letters in the alphabet
-std::string alphabet = "abcdefghijklmnopqrstuvwxyz";
-std::string cipher = "zyxwvutsrqponmlkjihgfedcba";
+std::string alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+std::string cipher = "zyxwvutsrqponmlkjihgfedcbazyxwvutsrqponmlkjihgfedcba1234567890";
 
 
 
@@ -13,9 +13,12 @@ std::string encode (std::string message){
         
     for (int i = 0; i < message.size(); ++i){
         
-        encoded_message += cipher[alphabet.find(message[i])];
+        if ( alphabet.find(message[i]) == -1) { // if a character is not in our alphabet, skip it
+            continue;
+        }
+        encoded_message += cipher[alphabet.find(message[i])]; // otherwise, encode it according to cipher
         
-        if ( (i + 1) % 5 == 0) {
+        if ( (i + 1) % 5 == 0) { // make groups of 5 characters separated by a blank space
             encoded_message += " ";
         }
     }    
@@ -38,8 +41,7 @@ std::string encode (std::string message){
     } 
 
     
- int main() {
-    
+ int main() {        
     
      std::string encoded_message = encode("abcdefg");
      
