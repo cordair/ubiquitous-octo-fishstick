@@ -22,6 +22,6 @@ For example encode this, decode that...
 For example, the type of a_string.size() is unsigned long int, so if we want to compare it against an int variable, we should cast the type of a_string.size():
 (int) a_string.size() 
 
-or declare the int variable as size_t
+or declare the int variable as [size_t](https://cplusplus.com/reference/cstddef/size_t/)
 
 

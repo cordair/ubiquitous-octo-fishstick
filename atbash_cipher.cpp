@@ -10,17 +10,20 @@ std::string cipher = "zyxwvutsrqponmlkjihgfedcbazyxwvutsrqponmlkjihgfedcba123456
 std::string encode (std::string message){
 
     std::string encoded_message = "";
+    int count_chars = 0;
         
-    for (int i = 0; i < message.size(); ++i){
+    for (int i = 0; i < (int) message.size(); ++i){ // (int) to convert to int and compare between equal types
         
-        if ( alphabet.find(message[i]) == -1) { // if a character is not in our alphabet, skip it
+        if (alphabet.find(message[i]) == -1) { // if a character is not in our alphabet, skip it
             continue;
         }
-        encoded_message += cipher[alphabet.find(message[i])]; // otherwise, encode it according to cipher
         
-        if ( (i + 1) % 5 == 0) { // make groups of 5 characters separated by a blank space
+        if ( count_chars == 5) { // make groups of 5 characters separated by a blank space
             encoded_message += " ";
+            count_chars = 0; // reset counter
         }
+        
+        encoded_message += cipher[alphabet.find(message[i])]; // otherwise, encode it according to cipher
     }    
     
     return encoded_message;
@@ -30,7 +33,7 @@ std::string encode (std::string message){
         
         std::string decoded_message = "";
         
-        for (int i = 0; i < message.size(); ++i) {
+        for (int i = 0; i < (int) message.size(); ++i) {
             if ( message[i] == ' ' ) {
                 continue;
             }
